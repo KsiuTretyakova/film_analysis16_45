@@ -78,4 +78,20 @@ plt.xlabel("Рік")
 plt.ylabel("Популярність")
 # plt.xticks(rotation=45)
 plt.tight_layout()
+# plt.show()
+
+# -------------------------------------------------------
+movies_df['profit'] = movies_df['revenue'] - movies_df['budget']
+
+plt.figure(figsize=(10,6))
+sns.scatterplot(data=movies_df, x='budget', y='profit', alpha=0.3)
+
+plt.title("Бюджет vs Прибуток")
+plt.xlabel("Бюджет")
+plt.ylabel("Прибуток")
+plt.tight_layout()
+
 plt.show()
+
+cleaned_file_path = 'cleaned_movies_metadata.csv'
+movies_df.to_csv(cleaned_file_path, index=False)
